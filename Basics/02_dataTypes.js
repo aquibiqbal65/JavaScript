@@ -34,9 +34,9 @@
  const outside= null;
  let eamilid; // undefined
 
- const id= symbol('123')
- const anotherid =symbol('123')
-  console.log(id===anotherid)
+//  const id= symbol('123')
+//  const anotherid =symbol('123')
+//   console.log(id===anotherid)
 
   const bignumber = 7892468375475753n
 
@@ -55,3 +55,37 @@
  const myFunction = function(){
     console.log("HelloWorld")
  }
+
+
+ //=========================================================================
+
+ // memory types
+
+ // stack(primitive), Heap(Non-Primitive)
+
+
+ //stack
+
+ let nameone ="Aquib"
+ let nametwo = nameone;
+
+ nametwo = "iqbal"
+
+ console.log(nameone);
+ console.log(nametwo);
+
+
+ //heap
+
+ let userone = {
+    email: "user@google.com",
+    upi: "user@ybl"
+ }
+
+ let usertwo =userone // here the usertwo take reference from user name any changes done to usertwo will reflect in userone, this is an example of heap
+
+ usertwo.email="usertwo@gmail.com";
+
+ console.log(userone.email);
+
+ 
