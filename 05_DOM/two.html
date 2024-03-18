@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white;">
+    
+</body>
+
+<script>
+    document.createElement('div')
+    console.log(div);
+    div.className = "main"
+    div.id = (Math.random() *10 +1)
+    div.setAttributes("title", "genersated title")
+    div.style.backgroundColor = "Green"
+    div.style.padding = "12px"
+    // div.innertext= "Chia aur code"
+    const addtext= div.createTextNode("Chai aur Code")
+    div.appendChild(addtext)
+
+    document.body.appendChild(div)
+</script>
+</html>
