@@ -73,7 +73,7 @@ function displayMessage(message){
 function endGame(){
     userInput.setAttribute('disabled', true)
     p.classList.add('button');
-    p.innerHTML = `<h2 id="newGame">Start New Game</h2>`;
+    p.innerHTML = `<h2 id="newGame" style= " display: flex; justify-content: center; color: green; border: 2px solid green; ">Start New Game</h2>`;
     p.addEventListener('click', newGame);
     StartOver.appendChild(p);
     playGame = false;
@@ -89,6 +89,7 @@ function newGame(){
         remaining.innerHTML = `${11-NumGuess}`
         userInput.removeAttribute('disabled')
         StartOver.removeChild(p)
+        lowOrHi.innerHTML = '';
         playGame = true;
     })
 }
