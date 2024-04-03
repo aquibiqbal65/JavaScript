@@ -5,18 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Html Events</title>
 </head>
-<body>
+<body style="background-color: #414141; color:aqua">
     <h2>Amazing Images</h2>
     <div>
         <ul id="images">
-            <li><img src="https://www.pexels.com/photo/person-holding-white-flowers-13289844/" id="flowers" alt="flowers"></li>
-            <li><img src="https://www.pexels.com/photo/a-man-on-a-motorcycle-rides-down-a-road-in-the-fog-20723862/" id="mountains" alt="mountains"></li>
-            <li><img src="https://www.pexels.com/photo/sign-near-old-historic-building-14602293/" id="buildings" alt="buildings"></li>
-            <li><img src="https://www.pexels.com/photo/a-person-holding-a-cup-of-tea-on-a-wooden-deck-20801057/" id="coffee" alt="coffee"></li>
-            <li><img src="https://www.pexels.com/photo/birds-eye-view-of-beach-19694267/" id="beach" alt="beach"></li>
-            <li><a href="https://google.com" id="google">Google</a>
+            <li><img src="https://images.pexels.com/photos/13289844/pexels-photo-13289844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="flowers" alt="flowers"></li>
+            <li><img src="https://images.pexels.com/photos/20723862/pexels-photo-20723862/free-photo-of-a-man-on-a-motorcycle-rides-down-a-road-in-the-fog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="mountains" alt="mountains"></li>
+            <li><img src="https://images.pexels.com/photos/14602293/pexels-photo-14602293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="buildings" alt="buildings"></li>
+            <li><img src="https://images.pexels.com/photos/20801057/pexels-photo-20801057/free-photo-of-a-person-holding-a-cup-of-tea-on-a-wooden-deck.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="coffee" alt="coffee"></li>
+            <li><img src="https://images.pexels.com/photos/19694267/pexels-photo-19694267/free-photo-of-birds-eye-view-of-beach.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="beach" alt="beach"></li>
+            <li><a style="color: antiquewhite;" href="https://google.com" id="google">Google</a>
             </li>
         </ul>
     </div>
 </body>
+<script>
+    //document.getElementById('buildings').onclick= function(){
+   //     alert('buildings clicked')
+ //   }
+
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("Clicked inside UL")
+    }, false)
+
+    document.getElementById('buildings').addEventListener('click', function(e){
+        console.log("Clicked inside Buildings")
+        e.stopPropagation() // this will stop from propagating the outer elements
+    }, false) 
+    // if true it is knowas capturing in this case outer to inner events occurs
+    //if false it is knownas bubble in this case inner to outer events occurs
+
+
+    // type,   timestamp, defaultPrevented
+    //target, toElement, srcElement , currentTarget,
+    //clientX, ClientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey , keycode
+
+
+
+    // attachEvent()
+    //jquery - onevent
+
+</script>
 </html>
