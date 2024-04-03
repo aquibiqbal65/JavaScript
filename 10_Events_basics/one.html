@@ -19,32 +19,5 @@
         </ul>
     </div>
 </body>
-<script>
-    //document.getElementById('buildings').onclick= function(){
-   //     alert('buildings clicked')
- //   }
-
-    document.getElementById('images').addEventListener('click', function(e){
-        console.log("Clicked inside UL")
-    }, false)
-
-    document.getElementById('buildings').addEventListener('click', function(e){
-        console.log("Clicked inside Buildings")
-        e.stopPropagation() // this will stop from propagating the outer elements
-    }, false) 
-    // if true it is knowas capturing in this case outer to inner events occurs
-    //if false it is knownas bubble in this case inner to outer events occurs
-
-
-    // type,   timestamp, defaultPrevented
-    //target, toElement, srcElement , currentTarget,
-    //clientX, ClientY, screenX, screenY
-    // altkey, ctrlkey, shiftkey , keycode
-
-
-
-    // attachEvent()
-    //jquery - onevent
-
-</script>
+<script src="script.js"></script>
 </html>
