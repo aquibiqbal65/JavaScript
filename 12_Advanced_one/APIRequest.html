@@ -7,12 +7,12 @@
 </head>
 <body style="background-color: #fff;">
     sdfss
-    <div class="card_container" style="background-color: rgb(100, 100, 232); width: 250px; height: 330px; border-radius: 15px">
+    <div class="card_container" style="display: grid; align-items: center; justify-content: center; background-color: rgb(200, 200, 200); width: 250px; height: 330px; border-radius: 15px">
         <div class="img-container">
-            <img src="" alt="">
+            <img id="img" src="" alt="user image" style="width: 220px; height: 220px; border-radius: 15px">
         </div>
         <div class="followers">
-
+            <p id="followers">Followers: <span id="Followerscount"></span></p>
         </div>
     </div>
     
@@ -25,8 +25,10 @@
         console.log(xhr.readyState);
         if(xhr.readyState === 4){
             const data= JSON.parse(this.responseText);
-            console.log(typeof data);
-            console.log(data.avatar_url);
+            const avatar = document.getElementById('img') 
+            avatar.src = data.avatar_url;
+            const follower = document.getElementById('Followerscount')
+            Followerscount.innerHTML = data.followers
         }
     }
     xhr.send();
