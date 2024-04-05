@@ -6,31 +6,55 @@
     <title>API</title>
 </head>
 <body style="background-color: #fff;">
-    sdfss
-    <div class="card_container" style="display: grid; align-items: center; justify-content: center; background-color: rgb(200, 200, 200); width: 250px; height: 330px; border-radius: 15px">
+    <div class="card_container" style="display: grid; align-items: center; justify-content: center; background-color: rgb(200, 200, 200); width: 250px; height: 440px; border-radius: 15px">
+        <form id="githubForm">
+            <label for="enteredusername">Enter GitHub Username:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Get Info</button>
+          </form>
+
         <div class="img-container">
             <img id="img" src="" alt="user image" style="width: 220px; height: 220px; border-radius: 15px">
         </div>
-        <div class="followers">
+
+        <div class="info">
+            <p id="username_">Username: <span id="username"></span></p>
+            <p id="name_">Name: <span id="name"></span></p>
+            <p id="location_">Followings: <span id="Followingscount"></span></p>
             <p id="followers">Followers: <span id="Followerscount"></span></p>
         </div>
     </div>
     
 </body>
 <script>
-    const requestUrl = 'https://api.github.com/users/aquibiqbal65'
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', requestUrl);
-    xhr.onreadystatechange = function(){
-        console.log(xhr.readyState);
-        if(xhr.readyState === 4){
-            const data= JSON.parse(this.responseText);
+    document.getElementById("githubForm").addEventListener("submit", function(e){
+        event.preventDefault();
+        const enteredusername = document.getElementById("enteredusername").value;
+        getuserInfo(enteredusername);
+    })
+
+    function getuserInfo(enteredusername){
+        fetch(`https://api.github.com/users/${enteredusername}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+
+        .then(data => {
             const avatar = document.getElementById('img') 
             avatar.src = data.avatar_url;
+            const username = document.getElementById('username')
+            username.innerHTML = data.login
+            const name = document.getElementById('name')
+            name.innerHTML = data.name
+            const location1 = document.getElementById('Followingscount')
+            Followingscount.innerHTML = data.following
             const follower = document.getElementById('Followerscount')
-            Followerscount.innerHTML = data.followers
+            Followerscount.innerHTML = data.followers;
+        })
         }
-    }
-    xhr.send();
+
 </script>
 </html>
